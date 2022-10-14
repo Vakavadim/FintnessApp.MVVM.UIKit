@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Workout View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="WorkoutViewController" customModule="FintnessApp_MVVM_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvy-Xe-Tm6">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="5E4-vO-8db"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0z-A9-6eR">
+                                <rect key="frame" x="0.0" y="216" width="390" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="fx3-Og-xH0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INH-Ft-oqG">
+                                <rect key="frame" x="0.0" y="756" width="390" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="8xq-Jt-eqQ"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dkh-pA-DoS">
+                                <rect key="frame" x="0.0" y="286" width="390" height="470"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="WM5-aJ-13w"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="5eD-tZ-iA0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="INH-Ft-oqG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0lY-Lj-KhW"/>
+                            <constraint firstItem="nvy-Xe-Tm6" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="2WA-cp-1mv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dkh-pA-DoS" secondAttribute="trailing" id="3Li-Ab-hdJ"/>
+                            <constraint firstItem="C0z-A9-6eR" firstAttribute="top" secondItem="nvy-Xe-Tm6" secondAttribute="bottom" constant="16" id="9ak-6w-NSc"/>
+                            <constraint firstItem="INH-Ft-oqG" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="EbA-sr-aMq"/>
+                            <constraint firstItem="INH-Ft-oqG" firstAttribute="top" secondItem="dkh-pA-DoS" secondAttribute="bottom" id="PKx-JB-aAb"/>
+                            <constraint firstItem="dkh-pA-DoS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QRo-EJ-Jaz"/>
+                            <constraint firstItem="C0z-A9-6eR" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Rud-wX-Idd"/>
+                            <constraint firstItem="C0z-A9-6eR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XA7-Og-Tdq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="INH-Ft-oqG" secondAttribute="bottom" id="g4f-Hz-dRS"/>
+                            <constraint firstItem="nvy-Xe-Tm6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="geN-eb-f1G"/>
+                            <constraint firstItem="nvy-Xe-Tm6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hyG-xF-KBk"/>
+                            <constraint firstItem="dkh-pA-DoS" firstAttribute="top" secondItem="C0z-A9-6eR" secondAttribute="bottom" constant="16" id="iCQ-vW-5Ho"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="dkh-pA-DoS" id="K9P-WM-flO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.692307692307693" y="3.5545023696682461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

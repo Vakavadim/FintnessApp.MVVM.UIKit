@@ -9,21 +9,53 @@
 /* Begin PBXBuildFile section */
 		E043E33D28F48EF400178AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E33C28F48EF400178AA9 /* AppDelegate.swift */; };
 		E043E33F28F48EF400178AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E33E28F48EF400178AA9 /* SceneDelegate.swift */; };
-		E043E34128F48EF400178AA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E34028F48EF400178AA9 /* ViewController.swift */; };
-		E043E34428F48EF400178AA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E043E34228F48EF400178AA9 /* Main.storyboard */; };
+		E043E34128F48EF400178AA9 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E34028F48EF400178AA9 /* WorkoutViewController.swift */; };
 		E043E34628F48EF600178AA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E043E34528F48EF600178AA9 /* Assets.xcassets */; };
 		E043E34928F48EF600178AA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E043E34728F48EF600178AA9 /* LaunchScreen.storyboard */; };
+		E043E35128F48F9100178AA9 /* TabBarControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E35028F48F9100178AA9 /* TabBarControllerView.swift */; };
+		E043E35528F494FD00178AA9 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E35428F494FD00178AA9 /* WorkoutViewModel.swift */; };
+		E0457CBA28F8512A0055355A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0457CB928F8512A0055355A /* StorageManager.swift */; };
+		E0457CBE28F855C60055355A /* WorkoutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0457CBD28F855C60055355A /* WorkoutViewController.storyboard */; };
+		E0457CC128F856AF0055355A /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0457CC028F856AF0055355A /* UIViewController + Storyboard.swift */; };
+		E0457CCB28F8584B0055355A /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0457CCA28F8584B0055355A /* ExercisesViewController.swift */; };
+		E0457CCD28F858590055355A /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0457CCC28F858590055355A /* ExercisesViewModel.swift */; };
+		E0457CCF28F858790055355A /* ExercisesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0457CCE28F858790055355A /* ExercisesViewController.storyboard */; };
+		E0457CD128F860910055355A /* UIColor + HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0457CD028F860910055355A /* UIColor + HEX.swift */; };
+		E0457CD528F861BD0055355A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0457CD328F861BD0055355A /* CalendarViewController.swift */; };
+		E0457CD628F861BD0055355A /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0457CD428F861BD0055355A /* CalendarViewController.xib */; };
+		E0457CD828F861D30055355A /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0457CD728F861D30055355A /* CalendarViewModel.swift */; };
+		E0504E6F28F72E0400C0FA01 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0504E6E28F72E0400C0FA01 /* Workout.swift */; };
+		E0504E7328F72F7D00C0FA01 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0504E7228F72F7D00C0FA01 /* WorkoutCell.swift */; };
+		E0504E7528F72FA000C0FA01 /* WorkoutCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0504E7428F72FA000C0FA01 /* WorkoutCellViewModel.swift */; };
+		E0504E7828F73CB000C0FA01 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E0504E7728F73CB000C0FA01 /* Realm */; };
+		E0504E7A28F73CB000C0FA01 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E0504E7928F73CB000C0FA01 /* RealmSwift */; };
+		E0504E7C28F73FB500C0FA01 /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E043E33928F48EF400178AA9 /* FintnessApp.MVVM.UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintnessApp.MVVM.UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E043E33C28F48EF400178AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E043E33E28F48EF400178AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E043E34028F48EF400178AA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E043E34328F48EF400178AA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E043E34028F48EF400178AA9 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		E043E34528F48EF600178AA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E043E34828F48EF600178AA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E043E34A28F48EF600178AA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E043E35028F48F9100178AA9 /* TabBarControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerView.swift; sourceTree = "<group>"; };
+		E043E35428F494FD00178AA9 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
+		E0457CB928F8512A0055355A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		E0457CBD28F855C60055355A /* WorkoutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkoutViewController.storyboard; sourceTree = "<group>"; };
+		E0457CC028F856AF0055355A /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
+		E0457CCA28F8584B0055355A /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
+		E0457CCC28F858590055355A /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
+		E0457CCE28F858790055355A /* ExercisesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExercisesViewController.storyboard; sourceTree = "<group>"; };
+		E0457CD028F860910055355A /* UIColor + HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + HEX.swift"; sourceTree = "<group>"; };
+		E0457CD328F861BD0055355A /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		E0457CD428F861BD0055355A /* CalendarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
+		E0457CD728F861D30055355A /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		E0504E6E28F72E0400C0FA01 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		E0504E7228F72F7D00C0FA01 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
+		E0504E7428F72FA000C0FA01 /* WorkoutCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCellViewModel.swift; sourceTree = "<group>"; };
+		E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0504E7A28F73CB000C0FA01 /* RealmSwift in Frameworks */,
+				E0504E7828F73CB000C0FA01 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +90,102 @@
 		E043E33B28F48EF400178AA9 /* FintnessApp.MVVM.UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				E043E33C28F48EF400178AA9 /* AppDelegate.swift */,
-				E043E33E28F48EF400178AA9 /* SceneDelegate.swift */,
-				E043E34028F48EF400178AA9 /* ViewController.swift */,
-				E043E34228F48EF400178AA9 /* Main.storyboard */,
+				E0457CC228F857AA0055355A /* Views */,
+				E0504E7028F72EA600C0FA01 /* Models */,
+				E0457CB828F851070055355A /* Services */,
+				E0457CBF28F856930055355A /* Helpers */,
+				E043E35228F4927800178AA9 /* Support */,
 				E043E34528F48EF600178AA9 /* Assets.xcassets */,
 				E043E34728F48EF600178AA9 /* LaunchScreen.storyboard */,
 				E043E34A28F48EF600178AA9 /* Info.plist */,
 			);
 			path = FintnessApp.MVVM.UIKit;
+			sourceTree = "<group>";
+		};
+		E043E35228F4927800178AA9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E043E33E28F48EF400178AA9 /* SceneDelegate.swift */,
+				E043E33C28F48EF400178AA9 /* AppDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		E043E35328F492AB00178AA9 /* WorkoutView */ = {
+			isa = PBXGroup;
+			children = (
+				E0457CBD28F855C60055355A /* WorkoutViewController.storyboard */,
+				E043E34028F48EF400178AA9 /* WorkoutViewController.swift */,
+				E043E35428F494FD00178AA9 /* WorkoutViewModel.swift */,
+				E0504E7128F72F4200C0FA01 /* WorkoutCell */,
+				E0457CD228F861710055355A /* CalendarView */,
+			);
+			path = WorkoutView;
+			sourceTree = "<group>";
+		};
+		E0457CB828F851070055355A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E0457CB928F8512A0055355A /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E0457CBF28F856930055355A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E0457CC028F856AF0055355A /* UIViewController + Storyboard.swift */,
+				E0457CD028F860910055355A /* UIColor + HEX.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E0457CC228F857AA0055355A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E043E35028F48F9100178AA9 /* TabBarControllerView.swift */,
+				E043E35328F492AB00178AA9 /* WorkoutView */,
+				E0457CC328F857BF0055355A /* ExercisesView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E0457CC328F857BF0055355A /* ExercisesView */ = {
+			isa = PBXGroup;
+			children = (
+				E0457CCE28F858790055355A /* ExercisesViewController.storyboard */,
+				E0457CCA28F8584B0055355A /* ExercisesViewController.swift */,
+				E0457CCC28F858590055355A /* ExercisesViewModel.swift */,
+			);
+			path = ExercisesView;
+			sourceTree = "<group>";
+		};
+		E0457CD228F861710055355A /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				E0457CD428F861BD0055355A /* CalendarViewController.xib */,
+				E0457CD328F861BD0055355A /* CalendarViewController.swift */,
+				E0457CD728F861D30055355A /* CalendarViewModel.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
+		E0504E7028F72EA600C0FA01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0504E6E28F72E0400C0FA01 /* Workout.swift */,
+				E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0504E7128F72F4200C0FA01 /* WorkoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0504E7228F72F7D00C0FA01 /* WorkoutCell.swift */,
+				E0504E7428F72FA000C0FA01 /* WorkoutCellViewModel.swift */,
+			);
+			path = WorkoutCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +204,10 @@
 			dependencies = (
 			);
 			name = FintnessApp.MVVM.UIKit;
+			packageProductDependencies = (
+				E0504E7728F73CB000C0FA01 /* Realm */,
+				E0504E7928F73CB000C0FA01 /* RealmSwift */,
+			);
 			productName = FintnessApp.MVVM.UIKit;
 			productReference = E043E33928F48EF400178AA9 /* FintnessApp.MVVM.UIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -94,6 +219,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
@@ -111,6 +239,9 @@
 				Base,
 			);
 			mainGroup = E043E33028F48EF400178AA9;
+			packageReferences = (
+				E0504E7628F73CB000C0FA01 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = E043E33A28F48EF400178AA9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +256,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0457CBE28F855C60055355A /* WorkoutViewController.storyboard in Resources */,
+				E0457CD628F861BD0055355A /* CalendarViewController.xib in Resources */,
+				E0457CCF28F858790055355A /* ExercisesViewController.storyboard in Resources */,
 				E043E34928F48EF600178AA9 /* LaunchScreen.storyboard in Resources */,
 				E043E34628F48EF600178AA9 /* Assets.xcassets in Resources */,
-				E043E34428F48EF400178AA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +271,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E043E34128F48EF400178AA9 /* ViewController.swift in Sources */,
+				E0457CD528F861BD0055355A /* CalendarViewController.swift in Sources */,
+				E043E35528F494FD00178AA9 /* WorkoutViewModel.swift in Sources */,
+				E0504E7328F72F7D00C0FA01 /* WorkoutCell.swift in Sources */,
+				E0457CCB28F8584B0055355A /* ExercisesViewController.swift in Sources */,
+				E0457CD128F860910055355A /* UIColor + HEX.swift in Sources */,
+				E043E34128F48EF400178AA9 /* WorkoutViewController.swift in Sources */,
+				E0457CC128F856AF0055355A /* UIViewController + Storyboard.swift in Sources */,
 				E043E33D28F48EF400178AA9 /* AppDelegate.swift in Sources */,
+				E0457CD828F861D30055355A /* CalendarViewModel.swift in Sources */,
+				E0504E7528F72FA000C0FA01 /* WorkoutCellViewModel.swift in Sources */,
+				E043E35128F48F9100178AA9 /* TabBarControllerView.swift in Sources */,
+				E0504E7C28F73FB500C0FA01 /* WorkoutList.swift in Sources */,
+				E0457CBA28F8512A0055355A /* StorageManager.swift in Sources */,
+				E0457CCD28F858590055355A /* ExercisesViewModel.swift in Sources */,
 				E043E33F28F48EF400178AA9 /* SceneDelegate.swift in Sources */,
+				E0504E6F28F72E0400C0FA01 /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E043E34228F48EF400178AA9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E043E34328F48EF400178AA9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E043E34728F48EF600178AA9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +430,8 @@
 				INFOPLIST_FILE = FintnessApp.MVVM.UIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +439,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vadim-Gamzaev.FintnessApp-MVVM-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,9 +460,8 @@
 				INFOPLIST_FILE = FintnessApp.MVVM.UIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +469,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Vadim-Gamzaev.FintnessApp-MVVM-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -358,6 +500,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0504E7628F73CB000C0FA01 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.32.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0504E7728F73CB000C0FA01 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0504E7628F73CB000C0FA01 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E0504E7928F73CB000C0FA01 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0504E7628F73CB000C0FA01 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E043E33128F48EF400178AA9 /* Project object */;
 }
