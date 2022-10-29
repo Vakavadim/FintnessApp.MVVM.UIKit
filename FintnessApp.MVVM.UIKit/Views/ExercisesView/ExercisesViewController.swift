@@ -8,22 +8,32 @@
 import UIKit
 
 class ExercisesViewController: UIViewController {
-
+    
+    @IBOutlet var addElementButton: UIButton!
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        segmentedControl.addTarget(self, action: #selector(indexChanged), for: .valueChanged)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func indexChanged(_ sender: UISegmentedControl) {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            addElementButton.titleLabel?.text = "Создать активность"
+            addElementButton.backgroundColor = .systemBlue
+        } else if segmentedControl.selectedSegmentIndex == 1 {
+            addElementButton.titleLabel?.text = "Создать программу"
+            addElementButton.backgroundColor = .systemIndigo
+        }
     }
-    */
-
 }
+
+//extension ExercisesViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        10
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//    }
+//}

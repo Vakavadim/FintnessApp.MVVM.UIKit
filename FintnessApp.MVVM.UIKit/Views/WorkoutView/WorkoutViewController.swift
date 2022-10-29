@@ -7,10 +7,27 @@
 
 import UIKit
 
+protocol WorkoutViewControllerDelegate: AnyObject {
+    func changeCalendarSize(state: Bool)
+}
+
 class WorkoutViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var weightLabel: UILabel!
+    @IBOutlet var weightStepper: UIStepper!
     
+    private var calendarVC: CalendarViewController!
+    private var visualEffectView: UIVisualEffectView!
+    
+    private let calendarVCMin = CGRect(x: 0,
+                                       y: -200,
+                                       width: UIScreen.main.bounds.width,
+                                       height: 400)
+    private let calendarVCMax = CGRect(x: 0,
+                                       y: 0,
+                                       width: UIScreen.main.bounds.width,
+                                       height: 400)
     
     private var viewModel: WorkoutViewModelProtocol! {
         didSet {
@@ -22,9 +39,21 @@ class WorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = WorkoutViewModel()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "WorkoutCell")
         setupTabBar()
-        // Do any additional setup after loading the view.
+        setupTableViewCell()
+        setupCalendarView()
+        setupUI()
+    }
+    
+    
+    @IBAction func weightStepper(_ sender: UIStepper) {
+        sender.stepValue = 0.5
+        weightLabel.text = String(sender.value)
+    }
+    
+    private func setupTableViewCell() {
+        let nib = UINib(nibName: "WorkoutCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: WorkoutCell.reuseId)
     }
     
     private func setupTabBar() {
@@ -35,7 +64,36 @@ class WorkoutViewController: UIViewController {
         tabBarController?.tabBar.standardAppearance = tabBarAppearance
         tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
     }
+    
+    private func installVisualEffect() {
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = self.view.frame
+        self.view.insertSubview(visualEffectView,
+                                belowSubview: self.calendarVC.view)
+    }
+    
+    private func setupCalendarView() {
+        calendarVC = CalendarViewController(
+            nibName: "CalendarViewController",
+            bundle: nil
+        )
+        
+        self.addChild(calendarVC)
+        self.view.addSubview(calendarVC.view)
+        
+        calendarVC.view.frame = calendarVCMin
+        calendarVC.delgate = self
+    }
+    
+    private func setupUI() {
+        tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        weightLabel.text = viewModel.getLastWeight().formatted()
+        weightStepper.value = viewModel.getLastWeight()
+        
+    }
 }
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -44,10 +102,34 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell", for: indexPath)
         guard let cell = cell as? WorkoutCell else { return UITableViewCell() }
         cell.viewModel = viewModel.getWorkoutCellViewModel(at: indexPath)
         return cell
-        
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        70
+    }
+}
+
+// MARK: - WorkoutViewControllerDelegate
+extension WorkoutViewController: WorkoutViewControllerDelegate {
+    
+    func changeCalendarSize(state: Bool) {
+        self.calendarVC.view.frame = state ? calendarVCMax : calendarVCMin
+        
+        if state {
+            // work with visualEffectView
+            installVisualEffect()
+            self.visualEffectView.effect = UIBlurEffect(style: .dark)
+            self.visualEffectView.alpha = 0.8
+        } else {
+            // work with visualEffectView
+            self.visualEffectView.effect = nil
+            self.visualEffectView.removeFromSuperview()
+        }
+    }
+    
+    
 }

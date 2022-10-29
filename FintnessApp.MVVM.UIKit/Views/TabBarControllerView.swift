@@ -10,22 +10,11 @@ import RealmSwift
 
 class TabBarControllerView: UITabBarController {
     
-//    var workoutList = WorkoutList(listName: "First", date: Date())
-//    var workout1 = Workout(type: "Chest", name: "Pushups", imageName: "list.bullet.circle")
-//    var workout2 = Workout(type: "Chest", name: "Some Exercises", imageName: "list.bullet.circle")
-//    var workout3 = Workout(type: "Chest", name: "Pull over", imageName: "list.bullet.circle")
-    
-    
     private let workoutVC: WorkoutViewController = WorkoutViewController.loadFromStoryboard()
     private let exercisesVC: ExercisesViewController = ExercisesViewController.loadFromStoryboard()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        workoutList.workouts.append(workout1)
-//        workoutList.workouts.append(workout2)
-//        workoutList.workouts.append(workout3)
-//
-//        StorageManager.shared.saveWorkoutList(workoutList)
         
         tabBar.tintColor = UIColor(rgb: 0xFF564C)
         view.backgroundColor = .red

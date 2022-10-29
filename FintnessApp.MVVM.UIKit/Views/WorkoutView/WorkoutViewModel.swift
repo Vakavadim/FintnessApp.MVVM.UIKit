@@ -11,6 +11,7 @@ import RealmSwift
 protocol WorkoutViewModelProtocol {
     func numbersOfRows() -> Int
     func getWorkouts()
+    func getLastWeight() -> Double
     func getWorkoutCellViewModel(at indexPath: IndexPath) -> WorkoutCellViewModelProtocol
 }
 
@@ -18,8 +19,13 @@ class WorkoutViewModel: WorkoutViewModelProtocol {
     
     private var workoutList: Results<WorkoutList>!
 
+
     func numbersOfRows() -> Int {
-        (workoutList.first?.workouts.count)!
+        return workoutList.first!.workouts.count
+    }
+    
+    func getLastWeight() -> Double {
+        return 95.5
     }
     
     func getWorkouts() {
@@ -27,7 +33,7 @@ class WorkoutViewModel: WorkoutViewModelProtocol {
     }
     
     func getWorkoutCellViewModel(at indexPath: IndexPath) -> WorkoutCellViewModelProtocol {
-        WorkoutCellViewModel(workout: (workoutList.first?.workouts[indexPath.row])!)
+        WorkoutCellViewModel(workout: workoutList.first!.workouts[indexPath.row])
     }
     
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00D983128FAF9F60052E4F8 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D983028FAF9F60052E4F8 /* CalendarManager.swift */; };
+		E00D983328FAFC1A0052E4F8 /* CalendarCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D983228FAFC1A0052E4F8 /* CalendarCellData.swift */; };
+		E02AE78228F9D63500C45D48 /* WorkoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E02AE78128F9D63500C45D48 /* WorkoutCell.xib */; };
 		E043E33D28F48EF400178AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E33C28F48EF400178AA9 /* AppDelegate.swift */; };
 		E043E33F28F48EF400178AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E33E28F48EF400178AA9 /* SceneDelegate.swift */; };
 		E043E34128F48EF400178AA9 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E34028F48EF400178AA9 /* WorkoutViewController.swift */; };
@@ -30,9 +33,16 @@
 		E0504E7828F73CB000C0FA01 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E0504E7728F73CB000C0FA01 /* Realm */; };
 		E0504E7A28F73CB000C0FA01 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E0504E7928F73CB000C0FA01 /* RealmSwift */; };
 		E0504E7C28F73FB500C0FA01 /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */; };
+		E0E814F32900731600687D3F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E814F22900731600687D3F /* CalendarCell.swift */; };
+		E0E814F52900736800687D3F /* CalendarCellVewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E814F42900736800687D3F /* CalendarCellVewModel.swift */; };
+		E0E814F7290077CA00687D3F /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E814F6290077CA00687D3F /* CalendarCell.xib */; };
+		E0F86899290C2544000DAAD7 /* UDDateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F86898290C2544000DAAD7 /* UDDateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E00D983028FAF9F60052E4F8 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		E00D983228FAFC1A0052E4F8 /* CalendarCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellData.swift; sourceTree = "<group>"; };
+		E02AE78128F9D63500C45D48 /* WorkoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutCell.xib; sourceTree = "<group>"; };
 		E043E33928F48EF400178AA9 /* FintnessApp.MVVM.UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintnessApp.MVVM.UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E043E33C28F48EF400178AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E043E33E28F48EF400178AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +66,10 @@
 		E0504E7228F72F7D00C0FA01 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		E0504E7428F72FA000C0FA01 /* WorkoutCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCellViewModel.swift; sourceTree = "<group>"; };
 		E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutList.swift; sourceTree = "<group>"; };
+		E0E814F22900731600687D3F /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		E0E814F42900736800687D3F /* CalendarCellVewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellVewModel.swift; sourceTree = "<group>"; };
+		E0E814F6290077CA00687D3F /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
+		E0F86898290C2544000DAAD7 /* UDDateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDDateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				E0457CB928F8512A0055355A /* StorageManager.swift */,
+				E00D983028FAF9F60052E4F8 /* CalendarManager.swift */,
+				E0F86898290C2544000DAAD7 /* UDDateManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -166,6 +182,7 @@
 				E0457CD428F861BD0055355A /* CalendarViewController.xib */,
 				E0457CD328F861BD0055355A /* CalendarViewController.swift */,
 				E0457CD728F861D30055355A /* CalendarViewModel.swift */,
+				E0E814F1290072DA00687D3F /* CalendarCell */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -175,6 +192,7 @@
 			children = (
 				E0504E6E28F72E0400C0FA01 /* Workout.swift */,
 				E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */,
+				E00D983228FAFC1A0052E4F8 /* CalendarCellData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,10 +200,21 @@
 		E0504E7128F72F4200C0FA01 /* WorkoutCell */ = {
 			isa = PBXGroup;
 			children = (
+				E02AE78128F9D63500C45D48 /* WorkoutCell.xib */,
 				E0504E7228F72F7D00C0FA01 /* WorkoutCell.swift */,
 				E0504E7428F72FA000C0FA01 /* WorkoutCellViewModel.swift */,
 			);
 			path = WorkoutCell;
+			sourceTree = "<group>";
+		};
+		E0E814F1290072DA00687D3F /* CalendarCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0E814F6290077CA00687D3F /* CalendarCell.xib */,
+				E0E814F22900731600687D3F /* CalendarCell.swift */,
+				E0E814F42900736800687D3F /* CalendarCellVewModel.swift */,
+			);
+			path = CalendarCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +288,10 @@
 				E0457CBE28F855C60055355A /* WorkoutViewController.storyboard in Resources */,
 				E0457CD628F861BD0055355A /* CalendarViewController.xib in Resources */,
 				E0457CCF28F858790055355A /* ExercisesViewController.storyboard in Resources */,
+				E0E814F7290077CA00687D3F /* CalendarCell.xib in Resources */,
 				E043E34928F48EF600178AA9 /* LaunchScreen.storyboard in Resources */,
 				E043E34628F48EF600178AA9 /* Assets.xcassets in Resources */,
+				E02AE78228F9D63500C45D48 /* WorkoutCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,13 +311,18 @@
 				E0457CC128F856AF0055355A /* UIViewController + Storyboard.swift in Sources */,
 				E043E33D28F48EF400178AA9 /* AppDelegate.swift in Sources */,
 				E0457CD828F861D30055355A /* CalendarViewModel.swift in Sources */,
+				E00D983328FAFC1A0052E4F8 /* CalendarCellData.swift in Sources */,
+				E0F86899290C2544000DAAD7 /* UDDateManager.swift in Sources */,
+				E0E814F32900731600687D3F /* CalendarCell.swift in Sources */,
 				E0504E7528F72FA000C0FA01 /* WorkoutCellViewModel.swift in Sources */,
 				E043E35128F48F9100178AA9 /* TabBarControllerView.swift in Sources */,
 				E0504E7C28F73FB500C0FA01 /* WorkoutList.swift in Sources */,
+				E0E814F52900736800687D3F /* CalendarCellVewModel.swift in Sources */,
 				E0457CBA28F8512A0055355A /* StorageManager.swift in Sources */,
 				E0457CCD28F858590055355A /* ExercisesViewModel.swift in Sources */,
 				E043E33F28F48EF400178AA9 /* SceneDelegate.swift in Sources */,
 				E0504E6F28F72E0400C0FA01 /* Workout.swift in Sources */,
+				E00D983128FAF9F60052E4F8 /* CalendarManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

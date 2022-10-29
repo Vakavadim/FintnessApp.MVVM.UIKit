@@ -11,10 +11,6 @@ import Foundation
 class WorkoutList: Object {
     @Persisted var listName: String
     @Persisted var date: Date
-    let workouts = List<Workout>()
-    
-    init(listName: String, date: Date) {
-        self.listName = listName
-        self.date = date
-    }
+//    @Persisted var weight: Double
+    @Persisted var workouts = List<Workout>()
 }
