@@ -102,7 +102,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath)
         guard let cell = cell as? WorkoutCell else { return UITableViewCell() }
         cell.viewModel = viewModel.getWorkoutCellViewModel(at: indexPath)
         return cell

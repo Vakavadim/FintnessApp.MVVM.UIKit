@@ -9,7 +9,7 @@ import UIKit
 
 class WorkoutCell: UITableViewCell {
     
-    static let reuseId = "workoutCell"
+    static let reuseId = "WorkoutCell"
     
     var viewModel: WorkoutCellViewModelProtocol! {
         didSet {

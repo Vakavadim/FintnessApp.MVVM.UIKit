@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>901094091399-1085kssoephvrfoan4ulad2s7urp9lmh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.901094091399-1085kssoephvrfoan4ulad2s7urp9lmh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCna99qlmBb92dbQfg5lRvKmtG8C9Ciw0g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>901094091399</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Vadim-Gamzaev.FintnessApp-MVVM-UIKit</string>
+	<key>PROJECT_ID</key>
+	<string>fintnessapp-74f03</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fintnessapp-74f03.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:901094091399:ios:27500917a65753c9036622</string>
+</dict>
+</plist>

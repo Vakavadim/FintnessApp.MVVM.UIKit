@@ -21,7 +21,8 @@ class WorkoutViewModel: WorkoutViewModelProtocol {
 
 
     func numbersOfRows() -> Int {
-        return workoutList.first!.workouts.count
+        guard let workouts = workoutList.first?.workouts.count else { return 10 }
+        return workouts
     }
     
     func getLastWeight() -> Double {
@@ -33,7 +34,11 @@ class WorkoutViewModel: WorkoutViewModelProtocol {
     }
     
     func getWorkoutCellViewModel(at indexPath: IndexPath) -> WorkoutCellViewModelProtocol {
-        WorkoutCellViewModel(workout: workoutList.first!.workouts[indexPath.row])
+        let dummyWorkout = Workout()
+        
+        guard let workout = workoutList.first?.workouts[indexPath.row] else { return WorkoutCellViewModel(workout: dummyWorkout)}
+        let viewModel = WorkoutCellViewModel(workout: workout)
+        return viewModel
     }
     
 }

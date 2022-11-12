@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -31,14 +31,19 @@
                                             <segment title="Программы"/>
                                         </segments>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbK-NO-P6E">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbK-NO-P6E">
                                         <rect key="frame" x="0.0" y="119.00000000000001" width="374" height="53.666666666666671"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Mf2-xS-Psm"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title=" Создать активность" imagePadding="100" buttonSize="large" titleAlignment="automatic">
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="100" maxY="0.0"/>
+                                        <state key="normal" title="Add activite">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="plus.app.fill" catalog="system" symbolScale="large" variableValue="1"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Создать упражнение" imagePadding="100" buttonSize="large">
                                             <imageReference key="image" image="plus.app.fill" catalog="system" symbolScale="large" variableValue="1"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,13 +53,17 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addElementAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XR5-Vq-ZhY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G81-qO-h53">
-                                <rect key="frame" x="0.0" y="219.66666666666669" width="390" height="590.33333333333326"/>
+                                <rect key="frame" x="0.0" y="235.66666666666669" width="390" height="574.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="IUH-jE-gla"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="TL3-ca-Iao"/>
                                 </connections>
                             </tableView>
@@ -62,7 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="G81-qO-h53" firstAttribute="top" secondItem="eiA-Ty-yas" secondAttribute="bottom" id="REU-q7-LSb"/>
+                            <constraint firstItem="G81-qO-h53" firstAttribute="top" secondItem="eiA-Ty-yas" secondAttribute="bottom" constant="16" id="REU-q7-LSb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="G81-qO-h53" secondAttribute="bottom" id="Z4k-yh-jxu"/>
                             <constraint firstItem="G81-qO-h53" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bru-fU-1no"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eiA-Ty-yas" secondAttribute="trailing" constant="8" id="fZr-w5-Uxz"/>
@@ -74,6 +83,7 @@
                     <connections>
                         <outlet property="addElementButton" destination="rbK-NO-P6E" id="1eu-qD-w0s"/>
                         <outlet property="segmentedControl" destination="51Q-qF-6wJ" id="Mra-sG-CY8"/>
+                        <outlet property="tableView" destination="G81-qO-h53" id="q3k-gD-9KZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

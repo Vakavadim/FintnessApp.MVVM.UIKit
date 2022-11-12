@@ -10,6 +10,7 @@
 		E00D983128FAF9F60052E4F8 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D983028FAF9F60052E4F8 /* CalendarManager.swift */; };
 		E00D983328FAFC1A0052E4F8 /* CalendarCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D983228FAFC1A0052E4F8 /* CalendarCellData.swift */; };
 		E02AE78228F9D63500C45D48 /* WorkoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E02AE78128F9D63500C45D48 /* WorkoutCell.xib */; };
+		E02E9FC6290E9F24009A13B5 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E9FC5290E9F24009A13B5 /* Exercise.swift */; };
 		E043E33D28F48EF400178AA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E33C28F48EF400178AA9 /* AppDelegate.swift */; };
 		E043E33F28F48EF400178AA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E33E28F48EF400178AA9 /* SceneDelegate.swift */; };
 		E043E34128F48EF400178AA9 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E043E34028F48EF400178AA9 /* WorkoutViewController.swift */; };
@@ -33,6 +34,16 @@
 		E0504E7828F73CB000C0FA01 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E0504E7728F73CB000C0FA01 /* Realm */; };
 		E0504E7A28F73CB000C0FA01 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E0504E7928F73CB000C0FA01 /* RealmSwift */; };
 		E0504E7C28F73FB500C0FA01 /* WorkoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */; };
+		E05439ED291515E0009050D6 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05439EC291515E0009050D6 /* ExerciseCell.swift */; };
+		E05439F029151646009050D6 /* ExerciseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05439EF29151646009050D6 /* ExerciseCellViewModel.swift */; };
+		E05439F2291519AB009050D6 /* NetworkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05439F1291519AB009050D6 /* NetworkDataManager.swift */; };
+		E06383A82910692700815FEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E06383A72910692700815FEE /* GoogleService-Info.plist */; };
+		E06383AB2910772400815FEE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E06383AA2910772400815FEE /* FirebaseAnalytics */; };
+		E06383AD2910772400815FEE /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E06383AC2910772400815FEE /* FirebaseAnalyticsSwift */; };
+		E06383AF2910772400815FEE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E06383AE2910772400815FEE /* FirebaseDatabase */; };
+		E06383B12910772400815FEE /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E06383B02910772400815FEE /* FirebaseDatabaseSwift */; };
+		E0DA1D4B291BB4A6004D7FAB /* ExerciseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0DA1D4A291BB4A6004D7FAB /* ExerciseCell.xib */; };
+		E0DA1D4D291E5BEA004D7FAB /* ExerciseTypeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA1D4C291E5BEA004D7FAB /* ExerciseTypeRow.swift */; };
 		E0E814F32900731600687D3F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E814F22900731600687D3F /* CalendarCell.swift */; };
 		E0E814F52900736800687D3F /* CalendarCellVewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E814F42900736800687D3F /* CalendarCellVewModel.swift */; };
 		E0E814F7290077CA00687D3F /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E814F6290077CA00687D3F /* CalendarCell.xib */; };
@@ -43,13 +54,13 @@
 		E00D983028FAF9F60052E4F8 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		E00D983228FAFC1A0052E4F8 /* CalendarCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellData.swift; sourceTree = "<group>"; };
 		E02AE78128F9D63500C45D48 /* WorkoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutCell.xib; sourceTree = "<group>"; };
+		E02E9FC5290E9F24009A13B5 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		E043E33928F48EF400178AA9 /* FintnessApp.MVVM.UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintnessApp.MVVM.UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E043E33C28F48EF400178AA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E043E33E28F48EF400178AA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E043E34028F48EF400178AA9 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		E043E34528F48EF600178AA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E043E34828F48EF600178AA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E043E34A28F48EF600178AA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E043E35028F48F9100178AA9 /* TabBarControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerView.swift; sourceTree = "<group>"; };
 		E043E35428F494FD00178AA9 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		E0457CB928F8512A0055355A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -66,6 +77,13 @@
 		E0504E7228F72F7D00C0FA01 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		E0504E7428F72FA000C0FA01 /* WorkoutCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCellViewModel.swift; sourceTree = "<group>"; };
 		E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutList.swift; sourceTree = "<group>"; };
+		E05439EC291515E0009050D6 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
+		E05439EF29151646009050D6 /* ExerciseCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCellViewModel.swift; sourceTree = "<group>"; };
+		E05439F1291519AB009050D6 /* NetworkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataManager.swift; sourceTree = "<group>"; };
+		E06383A72910692700815FEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E0DA1D48291B9685004D7FAB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0DA1D4A291BB4A6004D7FAB /* ExerciseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseCell.xib; sourceTree = "<group>"; };
+		E0DA1D4C291E5BEA004D7FAB /* ExerciseTypeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeRow.swift; sourceTree = "<group>"; };
 		E0E814F22900731600687D3F /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		E0E814F42900736800687D3F /* CalendarCellVewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellVewModel.swift; sourceTree = "<group>"; };
 		E0E814F6290077CA00687D3F /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
@@ -77,8 +95,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06383B12910772400815FEE /* FirebaseDatabaseSwift in Frameworks */,
+				E06383AF2910772400815FEE /* FirebaseDatabase in Frameworks */,
+				E06383AD2910772400815FEE /* FirebaseAnalyticsSwift in Frameworks */,
 				E0504E7A28F73CB000C0FA01 /* RealmSwift in Frameworks */,
 				E0504E7828F73CB000C0FA01 /* Realm in Frameworks */,
+				E06383AB2910772400815FEE /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,9 +131,6 @@
 				E0457CB828F851070055355A /* Services */,
 				E0457CBF28F856930055355A /* Helpers */,
 				E043E35228F4927800178AA9 /* Support */,
-				E043E34528F48EF600178AA9 /* Assets.xcassets */,
-				E043E34728F48EF600178AA9 /* LaunchScreen.storyboard */,
-				E043E34A28F48EF600178AA9 /* Info.plist */,
 			);
 			path = FintnessApp.MVVM.UIKit;
 			sourceTree = "<group>";
@@ -119,8 +138,12 @@
 		E043E35228F4927800178AA9 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				E0DA1D48291B9685004D7FAB /* Info.plist */,
+				E06383A72910692700815FEE /* GoogleService-Info.plist */,
 				E043E33E28F48EF400178AA9 /* SceneDelegate.swift */,
 				E043E33C28F48EF400178AA9 /* AppDelegate.swift */,
+				E043E34528F48EF600178AA9 /* Assets.xcassets */,
+				E043E34728F48EF600178AA9 /* LaunchScreen.storyboard */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -141,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				E0457CB928F8512A0055355A /* StorageManager.swift */,
+				E05439F1291519AB009050D6 /* NetworkDataManager.swift */,
 				E00D983028FAF9F60052E4F8 /* CalendarManager.swift */,
 				E0F86898290C2544000DAAD7 /* UDDateManager.swift */,
 			);
@@ -172,6 +196,7 @@
 				E0457CCE28F858790055355A /* ExercisesViewController.storyboard */,
 				E0457CCA28F8584B0055355A /* ExercisesViewController.swift */,
 				E0457CCC28F858590055355A /* ExercisesViewModel.swift */,
+				E05439EE291515FD009050D6 /* ExerciseCell */,
 			);
 			path = ExercisesView;
 			sourceTree = "<group>";
@@ -193,6 +218,8 @@
 				E0504E6E28F72E0400C0FA01 /* Workout.swift */,
 				E0504E7B28F73FB500C0FA01 /* WorkoutList.swift */,
 				E00D983228FAFC1A0052E4F8 /* CalendarCellData.swift */,
+				E02E9FC5290E9F24009A13B5 /* Exercise.swift */,
+				E0DA1D4C291E5BEA004D7FAB /* ExerciseTypeRow.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +232,16 @@
 				E0504E7428F72FA000C0FA01 /* WorkoutCellViewModel.swift */,
 			);
 			path = WorkoutCell;
+			sourceTree = "<group>";
+		};
+		E05439EE291515FD009050D6 /* ExerciseCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0DA1D4A291BB4A6004D7FAB /* ExerciseCell.xib */,
+				E05439EC291515E0009050D6 /* ExerciseCell.swift */,
+				E05439EF29151646009050D6 /* ExerciseCellViewModel.swift */,
+			);
+			path = ExerciseCell;
 			sourceTree = "<group>";
 		};
 		E0E814F1290072DA00687D3F /* CalendarCell */ = {
@@ -236,6 +273,10 @@
 			packageProductDependencies = (
 				E0504E7728F73CB000C0FA01 /* Realm */,
 				E0504E7928F73CB000C0FA01 /* RealmSwift */,
+				E06383AA2910772400815FEE /* FirebaseAnalytics */,
+				E06383AC2910772400815FEE /* FirebaseAnalyticsSwift */,
+				E06383AE2910772400815FEE /* FirebaseDatabase */,
+				E06383B02910772400815FEE /* FirebaseDatabaseSwift */,
 			);
 			productName = FintnessApp.MVVM.UIKit;
 			productReference = E043E33928F48EF400178AA9 /* FintnessApp.MVVM.UIKit.app */;
@@ -270,6 +311,7 @@
 			mainGroup = E043E33028F48EF400178AA9;
 			packageReferences = (
 				E0504E7628F73CB000C0FA01 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				E06383A92910772400815FEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E043E33A28F48EF400178AA9 /* Products */;
 			projectDirPath = "";
@@ -286,6 +328,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0457CBE28F855C60055355A /* WorkoutViewController.storyboard in Resources */,
+				E0DA1D4B291BB4A6004D7FAB /* ExerciseCell.xib in Resources */,
+				E06383A82910692700815FEE /* GoogleService-Info.plist in Resources */,
 				E0457CD628F861BD0055355A /* CalendarViewController.xib in Resources */,
 				E0457CCF28F858790055355A /* ExercisesViewController.storyboard in Resources */,
 				E0E814F7290077CA00687D3F /* CalendarCell.xib in Resources */,
@@ -305,12 +349,15 @@
 				E0457CD528F861BD0055355A /* CalendarViewController.swift in Sources */,
 				E043E35528F494FD00178AA9 /* WorkoutViewModel.swift in Sources */,
 				E0504E7328F72F7D00C0FA01 /* WorkoutCell.swift in Sources */,
+				E05439ED291515E0009050D6 /* ExerciseCell.swift in Sources */,
 				E0457CCB28F8584B0055355A /* ExercisesViewController.swift in Sources */,
 				E0457CD128F860910055355A /* UIColor + HEX.swift in Sources */,
 				E043E34128F48EF400178AA9 /* WorkoutViewController.swift in Sources */,
 				E0457CC128F856AF0055355A /* UIViewController + Storyboard.swift in Sources */,
 				E043E33D28F48EF400178AA9 /* AppDelegate.swift in Sources */,
 				E0457CD828F861D30055355A /* CalendarViewModel.swift in Sources */,
+				E05439F2291519AB009050D6 /* NetworkDataManager.swift in Sources */,
+				E02E9FC6290E9F24009A13B5 /* Exercise.swift in Sources */,
 				E00D983328FAFC1A0052E4F8 /* CalendarCellData.swift in Sources */,
 				E0F86899290C2544000DAAD7 /* UDDateManager.swift in Sources */,
 				E0E814F32900731600687D3F /* CalendarCell.swift in Sources */,
@@ -318,9 +365,11 @@
 				E043E35128F48F9100178AA9 /* TabBarControllerView.swift in Sources */,
 				E0504E7C28F73FB500C0FA01 /* WorkoutList.swift in Sources */,
 				E0E814F52900736800687D3F /* CalendarCellVewModel.swift in Sources */,
+				E05439F029151646009050D6 /* ExerciseCellViewModel.swift in Sources */,
 				E0457CBA28F8512A0055355A /* StorageManager.swift in Sources */,
 				E0457CCD28F858590055355A /* ExercisesViewModel.swift in Sources */,
 				E043E33F28F48EF400178AA9 /* SceneDelegate.swift in Sources */,
+				E0DA1D4D291E5BEA004D7FAB /* ExerciseTypeRow.swift in Sources */,
 				E0504E6F28F72E0400C0FA01 /* Workout.swift in Sources */,
 				E00D983128FAF9F60052E4F8 /* CalendarManager.swift in Sources */,
 			);
@@ -463,7 +512,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WSW34L4PSC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FintnessApp.MVVM.UIKit/Info.plist;
+				INFOPLIST_FILE = FintnessApp.MVVM.UIKit/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -493,7 +542,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WSW34L4PSC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FintnessApp.MVVM.UIKit/Info.plist;
+				INFOPLIST_FILE = FintnessApp.MVVM.UIKit/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -546,6 +595,14 @@
 				minimumVersion = 10.32.0;
 			};
 		};
+		E06383A92910772400815FEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -558,6 +615,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0504E7628F73CB000C0FA01 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		E06383AA2910772400815FEE /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E06383A92910772400815FEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		E06383AC2910772400815FEE /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E06383A92910772400815FEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		E06383AE2910772400815FEE /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E06383A92910772400815FEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		E06383B02910772400815FEE /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E06383A92910772400815FEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

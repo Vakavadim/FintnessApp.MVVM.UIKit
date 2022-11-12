@@ -10,10 +10,16 @@ import Foundation
 protocol WorkoutCellViewModelProtocol {
     var workoutName: String { get }
     var imageName: String { get }
+    var exposition: String  { get }
+    var weight: Int? { get set }
+    var count: Int? { get set }
+    var range: Int? { get set }
+    var time: Int? { get set }
     init(workout: Workout)
 }
 
 class WorkoutCellViewModel: WorkoutCellViewModelProtocol {
+    
     private let workout: Workout
     
     var workoutName: String {
@@ -23,6 +29,18 @@ class WorkoutCellViewModel: WorkoutCellViewModelProtocol {
     var imageName: String {
         workout.imageName
     }
+    
+    var exposition: String {
+        workout.exposition
+    }
+    
+    var weight: Int?
+    
+    var count: Int?
+    
+    var range: Int?
+    
+    var time: Int?
     
     required init(workout: Workout) {
         self.workout = workout
