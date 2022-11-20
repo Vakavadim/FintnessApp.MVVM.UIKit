@@ -21,7 +21,7 @@ final class StorageManager {
         }
     }
     
-    func saveTask(_ workout: Workout, for workoutList: WorkoutList) {
+    func saveWorkout(_ workout: Workout, for workoutList: WorkoutList) {
         try! realm.write {
             workoutList.workouts.append(workout)
             print("add new workout")

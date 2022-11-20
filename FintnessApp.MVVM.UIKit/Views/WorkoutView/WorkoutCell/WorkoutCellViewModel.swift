@@ -31,7 +31,7 @@ class WorkoutCellViewModel: WorkoutCellViewModelProtocol {
     }
     
     var exposition: String {
-        workout.exposition
+        workout.description
     }
     
     var weight: Int?

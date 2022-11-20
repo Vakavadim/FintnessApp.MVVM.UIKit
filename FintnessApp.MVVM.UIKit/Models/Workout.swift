@@ -12,7 +12,7 @@ class Workout: Object {
     @Persisted var type: String
     @Persisted var name: String
     @Persisted var imageName: String
-    @Persisted var exposition: String
+    @Persisted var desc: String
     @Persisted var count: Int?
     @Persisted var weght: Int?
     @Persisted var time: Int?

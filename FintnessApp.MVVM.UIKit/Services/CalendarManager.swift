@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CalendarManager {
+final class CalendarManager {
     
     static let shared = CalendarManager()
     private init() {}

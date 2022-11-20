@@ -11,7 +11,7 @@ import RealmSwift
 class TabBarControllerView: UITabBarController {
     
     private let workoutVC: WorkoutViewController = WorkoutViewController.loadFromStoryboard()
-    private let exercisesVC: ExercisesViewController = ExercisesViewController.loadFromStoryboard()
+    private let exercisesVC: ExercisesGroupViewController = ExercisesGroupViewController.loadFromStoryboard()
 
     override func viewDidLoad() {
         super.viewDidLoad()

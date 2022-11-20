@@ -9,6 +9,7 @@ import UIKit
 
 class CalendarCell: UICollectionViewCell {
     
+    @IBOutlet var workoutIndicatorLabel: UILabel!
     @IBOutlet var selectedView: UIView!
     @IBOutlet var dateLabel: UILabel!
     
@@ -19,6 +20,8 @@ class CalendarCell: UICollectionViewCell {
             dateLabel.textColor = viewModel.currentDayIndicator || viewModel.selectedIndicator ? .white : .black
             selectedView.isHidden = !viewModel.currentDayIndicator && !viewModel.selectedIndicator
             selectedView.backgroundColor = viewModel.selectedIndicator ? .red : .gray
+            workoutIndicatorLabel.isHidden = !viewModel.workoutIndicator
+            workoutIndicatorLabel.textColor = viewModel.currentDayIndicator || viewModel.selectedIndicator ? .white : .black
         }
     }
 }

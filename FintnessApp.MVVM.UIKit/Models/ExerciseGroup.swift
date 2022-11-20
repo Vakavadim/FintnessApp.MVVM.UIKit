@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ExerciseTypeRow {
+struct ExerciseGroup {
     var title: String
     var imageName: String
-    var exercise: [Exercise]
+    var exercises: [Exercise]
 }

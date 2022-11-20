@@ -16,7 +16,7 @@ class CalendarViewController: UIViewController {
     private var viewModel: CalendarViewModelProrocol!
     
     // External dependencies
-    weak var delgate: WorkoutViewControllerDelegate?
+    weak var delegate: WorkoutViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,9 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func expendButton(_ sender: Any) {
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: { [self] in
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: { [unowned self] in
             viewModel.calendarChangeSize()
-            delgate?.changeCalendarSize(state: viewModel.calendarExpand)
+            delegate?.changeCalendarSize(state: viewModel.calendarExpand)
         }, completion: nil)
 
         print("Button did tap")
@@ -58,7 +58,6 @@ class CalendarViewController: UIViewController {
             calendarCollectionView.reloadData()
             updateCollectionViewSize()
             dataLabel.text = viewModel.dateString
-            print("View model did change")
         }
     }
     
@@ -107,7 +106,7 @@ class CalendarViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: { [self] in
         if translation.y > 100 || velocity.y > 500 {
                 viewModel.calendarChangeSize()
-                delgate?.changeCalendarSize(state: viewModel.calendarExpand)
+                delegate?.changeCalendarSize(state: viewModel.calendarExpand)
             }
         }, completion: nil)
     }
@@ -125,7 +124,7 @@ class CalendarViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: { [self] in
             if translation.y > -100 || velocity.y > -500 {
                 viewModel.calendarChangeSize()
-                delgate?.changeCalendarSize(state: viewModel.calendarExpand)
+                delegate?.changeCalendarSize(state: viewModel.calendarExpand)
             }
         }, completion: nil)
     }
@@ -148,6 +147,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.cellDidSelected(at: indexPath)
+        delegate?.reloadTableViewData()
         print(viewModel.selectedDate)
     }
 }

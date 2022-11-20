@@ -9,6 +9,7 @@ import UIKit
 
 protocol WorkoutViewControllerDelegate: AnyObject {
     func changeCalendarSize(state: Bool)
+    func reloadTableViewData()
 }
 
 class WorkoutViewController: UIViewController {
@@ -43,6 +44,11 @@ class WorkoutViewController: UIViewController {
         setupTableViewCell()
         setupCalendarView()
         setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadTableViewData()
     }
     
     
@@ -82,14 +88,15 @@ class WorkoutViewController: UIViewController {
         self.view.addSubview(calendarVC.view)
         
         calendarVC.view.frame = calendarVCMin
-        calendarVC.delgate = self
+        calendarVC.delegate = self
     }
     
     private func setupUI() {
+        tableView.layer.cornerRadius = 20
         tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        tableView.clipsToBounds = true
         weightLabel.text = viewModel.getLastWeight().formatted()
         weightStepper.value = viewModel.getLastWeight()
-        
     }
 }
 
@@ -115,6 +122,10 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - WorkoutViewControllerDelegate
 extension WorkoutViewController: WorkoutViewControllerDelegate {
+    func reloadTableViewData() {
+        viewModel.getWorkouts()
+        tableView.reloadData()
+    }
     
     func changeCalendarSize(state: Bool) {
         self.calendarVC.view.frame = state ? calendarVCMax : calendarVCMin

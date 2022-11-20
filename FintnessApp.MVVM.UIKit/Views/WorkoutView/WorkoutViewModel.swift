@@ -18,7 +18,8 @@ protocol WorkoutViewModelProtocol {
 class WorkoutViewModel: WorkoutViewModelProtocol {
     
     private var workoutList: Results<WorkoutList>!
-
+    
+    var viewModelDidChange: ((WorkoutViewModelProtocol) -> Void)?
 
     func numbersOfRows() -> Int {
         guard let workouts = workoutList.first?.workouts.count else { return 10 }
@@ -30,7 +31,13 @@ class WorkoutViewModel: WorkoutViewModelProtocol {
     }
     
     func getWorkouts() {
-        workoutList = StorageManager.shared.realm.objects(WorkoutList.self)
+        let selectedDate = UDDateManager.shared.getSelectedDate()
+        let workoutLists = StorageManager.shared.realm.objects(WorkoutList.self)
+        let workoutList = workoutLists.where {
+            $0.date == selectedDate
+        }
+        self.workoutList = workoutList
+        
     }
     
     func getWorkoutCellViewModel(at indexPath: IndexPath) -> WorkoutCellViewModelProtocol {

@@ -2,152 +2,94 @@
 //  ExercisesViewController.swift
 //  FintnessApp.MVVM.UIKit
 //
-//  Created by Вадим Гамзаев on 13.10.2022.
+//  Created by Вадим Гамзаев on 15.11.2022.
 //
 
 import UIKit
-import Firebase
+import RealmSwift
 
 class ExercisesViewController: UIViewController {
     
-    @IBOutlet var addElementButton: UIButton!
-    @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var tableView: UITableView!
     
-    var ref: DatabaseReference!
-    
-    var exercises: [Exercise] = []
-    
-    var exerciseGroups: [ExerciseTypeRow] = []
-    
-    private var activityIndicator: UIActivityIndicatorView?
-    private var viewModel: ExercisesViewModelProtocol!
-    
+    var viewModel: ExercisesViewModelProtocol!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator = showActivityIndicator(in: view)
-        viewModel = ExercisesViewModel()
-        segmentedControl.addTarget(self, action: #selector(indexChanged), for: .valueChanged)
-        ref = Database.database().reference(withPath: "workouts").child("exercises")
-        setupTableViewCell()
+        registerTableViewCell()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.ref.observe(.value, with: {[weak self] (snapshot) in
-            
-            var armExercises: [Exercise] = []
-            var legExercises: [Exercise] = []
-            var shoulderExercises: [Exercise] = []
-            var chestExercises: [Exercise] = []
-            var backExercises: [Exercise] = []
-            var absExercises: [Exercise] = []
-            var stretching: [Exercise] = []
-            var cardio: [Exercise] = []
-            
-            for item in snapshot.children {
-                let exercise = Exercise(snapshot: item as! DataSnapshot)
-                
-                switch exercise.type {
-                case "armExercise":
-                    armExercises.append(exercise)
-                case "legExercise":
-                    legExercises.append(exercise)
-                case "shoulderExercise":
-                    shoulderExercises.append(exercise)
-                case "chestExercise":
-                    chestExercises.append(exercise)
-                case "backExercise":
-                    backExercises.append(exercise)
-                case "absExercise":
-                    absExercises.append(exercise)
-                case "stretching":
-                    stretching.append(exercise)
-                case "cardio":
-                    cardio.append(exercise)
-                default:
-                    print("default")
-                }
-            }
-            
-            let _exerciseGroups = [
-                ExerciseTypeRow(title: "Руки",
-                                imageName: "questionmark.circle",
-                                exercise: armExercises),
-                ExerciseTypeRow(title: "Ноги",
-                                imageName: "questionmark.circle",
-                                exercise: legExercises),
-                ExerciseTypeRow(title: "Плечи",
-                                imageName: "questionmark.circle",
-                                exercise: shoulderExercises),
-                ExerciseTypeRow(title: "Грудь",
-                                imageName: "questionmark.circle",
-                                exercise: chestExercises),
-                ExerciseTypeRow(title: "Спина",
-                                imageName: "questionmark.circle",
-                                exercise: backExercises),
-                ExerciseTypeRow(title: "Пресс",
-                                imageName: "questionmark.circle",
-                                exercise: absExercises),
-                ExerciseTypeRow(title: "Растяжка",
-                                imageName: "questionmark.circle",
-                                exercise: stretching),
-                ExerciseTypeRow(title: "Кардио",
-                                imageName: "questionmark.circle",
-                                exercise: cardio),
-            ]
-
-            self?.exerciseGroups = _exerciseGroups
-            self?.activityIndicator?.stopAnimating()
-            self?.tableView.reloadData()
-        })
-    }
-    
-    @IBAction func addElementAction(_ sender: Any) {
-        print("Добавленна активность")
-    }
-    
-    private func showActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .black
-        activityIndicator.startAnimating()
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        
-        view.addSubview(activityIndicator)
-        
-        return activityIndicator
-    }
-    
-    private func setupTableViewCell() {
+    private func registerTableViewCell() {
         let nib = UINib(nibName: "ExerciseCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: ExerciseCell.reuseId)
+        tableView.register(nib, forCellReuseIdentifier: "ExerciseCell")
     }
-    
-    @objc func indexChanged(_ sender: UISegmentedControl) {
-        if segmentedControl.selectedSegmentIndex == 0 {
-            addElementButton.setTitle("Создать упражнение", for: .normal)
-            addElementButton.backgroundColor = .systemBlue
-        } else if segmentedControl.selectedSegmentIndex == 1 {
-            addElementButton.setTitle("Создать программу", for: .normal)
-            addElementButton.backgroundColor = .systemIndigo
-        }
-    }
+
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension ExercisesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        exerciseGroups.count
+        viewModel.exercise.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellViewModel = viewModel.getCellViewModel(indexPath: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath)
         guard let cell = cell as? ExerciseCell else { return UITableViewCell() }
-        cell.typeImage.image = UIImage(systemName: exerciseGroups[indexPath.row].imageName)
-        cell.titleLabel.text = exerciseGroups[indexPath.row].title
-        cell.exerciseCountLabel.text = exerciseGroups[indexPath.row].exercise.count.formatted()
-
+        cell.viewModel = cellViewModel
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        alertForAddExercise(indexPath: indexPath)
+    }
+}
+
+// MARK: - Alert for add workouts
+extension ExercisesViewController {
+    func alertForAddExercise(indexPath: IndexPath) {
+        
+        
+        let cellViewModel = viewModel.getCellViewModel(indexPath: indexPath)
+        let title = cellViewModel.exercise.title
+        let type = cellViewModel.exercise.type
+        let description = cellViewModel.exercise.description
+        let imageName = cellViewModel.exercise.imageName
+        
+        let workout = Workout()
+        workout.name = title
+        workout.type = type
+        workout.imageName = imageName
+        let selectedDate = UDDateManager.shared.getSelectedDate()
+        
+        let workoutLists = StorageManager.shared.realm.objects(WorkoutList.self).where {
+            $0.date == selectedDate
+        }
+        
+        
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Add", style: .default) { _ in
+            print("Save action")
+            if workoutLists.first != nil {
+                StorageManager.shared.saveWorkout(workout, for: workoutLists.first!)
+            } else {
+                let workoutList = WorkoutList()
+                workoutList.date = selectedDate
+                workoutList.listName = "workoutList"
+                workoutList.weight = 90.0
+                workoutList.workouts.append(workout)
+                StorageManager.shared.saveWorkoutList(workoutList)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+        
     }
 }

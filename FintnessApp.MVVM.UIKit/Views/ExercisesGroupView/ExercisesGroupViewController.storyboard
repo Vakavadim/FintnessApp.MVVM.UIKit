@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Exercises Group View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="ExercisesGroupViewController" customModule="FintnessApp_MVVM_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eiA-Ty-yas">
+                                <rect key="frame" x="8" y="46.999999999999986" width="374" height="172.66666666666663"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="65E-2R-DqE">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="51Q-qF-6wJ">
+                                        <rect key="frame" x="0.0" y="72" width="374" height="32"/>
+                                        <segments>
+                                            <segment title="Упражнения"/>
+                                            <segment title="Программы"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbK-NO-P6E">
+                                        <rect key="frame" x="0.0" y="119.00000000000001" width="374" height="53.666666666666671"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Mf2-xS-Psm"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="100" maxY="0.0"/>
+                                        <state key="normal" title="Add activite">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="plus.app.fill" catalog="system" symbolScale="large" variableValue="1"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Создать упражнение" imagePadding="100" buttonSize="large">
+                                            <imageReference key="image" image="plus.app.fill" catalog="system" symbolScale="large" variableValue="1"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addElementAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XR5-Vq-ZhY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="G81-qO-h53">
+                                <rect key="frame" x="0.0" y="235.66666666666669" width="390" height="574.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="IUH-jE-gla"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="TL3-ca-Iao"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G81-qO-h53" firstAttribute="top" secondItem="eiA-Ty-yas" secondAttribute="bottom" constant="16" id="REU-q7-LSb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="G81-qO-h53" secondAttribute="bottom" id="Z4k-yh-jxu"/>
+                            <constraint firstItem="G81-qO-h53" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bru-fU-1no"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eiA-Ty-yas" secondAttribute="trailing" constant="8" id="fZr-w5-Uxz"/>
+                            <constraint firstItem="eiA-Ty-yas" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="o0j-8K-Aeh"/>
+                            <constraint firstItem="eiA-Ty-yas" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="s15-nB-yVi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="G81-qO-h53" secondAttribute="trailing" id="zF3-B7-3w3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addElementButton" destination="rbK-NO-P6E" id="1eu-qD-w0s"/>
+                        <outlet property="segmentedControl" destination="51Q-qF-6wJ" id="Mra-sG-CY8"/>
+                        <outlet property="tableView" destination="G81-qO-h53" id="q3k-gD-9KZ"/>
+                        <segue destination="3Hf-CS-xet" kind="show" identifier="showExercises" id="WH6-Xl-RBH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10.769230769230768" y="3.5545023696682461"/>
+        </scene>
+        <!--ExercisesVC-->
+        <scene sceneID="duM-9c-ola">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ExercisesViewController" referencedIdentifier="ExercisesVC" id="3Hf-CS-xet" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="j1p-fa-bPf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w88-8J-637" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="725" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

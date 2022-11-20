@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol CalendarCellViewModelProtocol {
     var dayNumber: String { get }
@@ -36,16 +37,16 @@ class CalendarCellViewModel: CalendarCellViewModelProtocol {
     }
     
     var workoutIndicator: Bool {
-        get {
-            false
-        } set {
-
+        guard let date = cellData.date else { return false }
+        let workoutLists = StorageManager.shared.realm.objects(WorkoutList.self).where {
+            $0.date == date
         }
+        return workoutLists.first?.workouts != nil
     }
 
     
     func dayСontainsWorkouts() {
-        workoutIndicator.toggle()
+        
     }
     
     required init(cellData: CalendarCellData) {
