@@ -57,6 +57,7 @@ class WorkoutViewController: UIViewController {
         weightLabel.text = String(sender.value)
     }
     
+    // MARK: - Setup UI Functions
     private func setupTableViewCell() {
         let nib = UINib(nibName: "WorkoutCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: WorkoutCell.reuseId)
@@ -128,6 +129,7 @@ extension WorkoutViewController: WorkoutViewControllerDelegate {
     }
     
     func changeCalendarSize(state: Bool) {
+        
         self.calendarVC.view.frame = state ? calendarVCMax : calendarVCMin
         
         if state {
