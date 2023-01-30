@@ -19,7 +19,7 @@ class ExerciseGroupCell: UITableViewCell {
     }
     
     private func updateView() {
-        typeImage.image = UIImage(systemName: viewModel.imageName)
+        typeImage.image = UIImage(named: viewModel.imageName)
         titleLabel.text = viewModel.exerciseGroupName
         exerciseCountLabel.text = viewModel.exercises.count.formatted()
     }

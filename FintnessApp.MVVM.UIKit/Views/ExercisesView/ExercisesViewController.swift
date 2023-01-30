@@ -12,6 +12,9 @@ class ExercisesViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    private var visualEffectView: UIVisualEffectView!
+    private var addExerciseVC: AddExerciseViewController!
+    
     var viewModel: ExercisesViewModelProtocol!
 
     override func viewDidLoad() {
@@ -23,7 +26,48 @@ class ExercisesViewController: UIViewController {
         let nib = UINib(nibName: "ExerciseCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "ExerciseCell")
     }
-
+    
+    private func blureBackground() {
+        
+        DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1,
+                                   initialSpringVelocity: 1,
+                                   options: .curveEaseOut,
+                                   animations: { [unowned self] in
+                        self.visualEffectView = UIVisualEffectView()
+                        self.visualEffectView.frame = self.view.frame
+                        self.view.insertSubview(
+                            self.visualEffectView,
+                            belowSubview: self.addExerciseVC.view
+                        )
+                        self.visualEffectView.effect = UIBlurEffect(style: .dark)
+                        self.visualEffectView.alpha = 0.8
+                    }, completion: nil)
+        }
+    }
+    
+    private func addExercise(exercise: Exercise) {
+        
+        DispatchQueue.main.async { [self] in
+            self.addExerciseVC = AddExerciseViewController(
+                nibName: "AddExerciseViewController",
+                bundle: nil
+            )
+            
+            addExerciseVC.viewModel = AddExerciseViewModel(exercise: exercise)
+            
+            self.addChild(addExerciseVC)
+            self.view.addSubview(addExerciseVC.view)
+            
+            addExerciseVC.view.translatesAutoresizingMaskIntoConstraints = false
+            addExerciseVC.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 32).isActive = true
+            addExerciseVC.view.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 342).isActive = true
+            addExerciseVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+            addExerciseVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+            addExerciseVC.view.layer.cornerRadius = 20
+        }
+        blureBackground()
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -41,7 +85,8 @@ extension ExercisesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        alertForAddExercise(indexPath: indexPath)
+//        alertForAddExercise(indexPath: indexPath)
+        addExercise(exercise: viewModel.getExercise(by: indexPath))
     }
 }
 

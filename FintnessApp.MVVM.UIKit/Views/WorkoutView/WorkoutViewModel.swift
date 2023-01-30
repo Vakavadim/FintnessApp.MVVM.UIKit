@@ -8,10 +8,11 @@
 import Foundation
 import RealmSwift
 
-protocol WorkoutViewModelProtocol {
+protocol WorkoutViewModelProtocol: AnyObject {
     func numbersOfRows() -> Int
     func getWorkouts()
-    func getLastWeight() -> Double
+    func getWeightValue() -> Double
+    func setWeightValue(weigth: Double)
     func getWorkoutCellViewModel(at indexPath: IndexPath) -> WorkoutCellViewModelProtocol
 }
 
@@ -26,8 +27,15 @@ class WorkoutViewModel: WorkoutViewModelProtocol {
         return workouts
     }
     
-    func getLastWeight() -> Double {
-        return 95.5
+    func getWeightValue() -> Double {
+        guard let workoutList = self.workoutList.first else { return 90 }
+        return workoutList.weight
+    }
+    
+    func setWeightValue(weigth: Double) {
+        guard let workoutList = self.workoutList.first else { return }
+        StorageManager.shared.editWorkoutListWeigth(workoutList, with: weigth)
+        print(workoutList.weight)
     }
     
     func getWorkouts() {

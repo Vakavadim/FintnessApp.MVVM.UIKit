@@ -28,6 +28,12 @@ final class StorageManager {
         }
     }
     
+    func editWorkoutListWeigth(_ workoutList: WorkoutList, with weight: Double) {
+        try! realm.write {
+            workoutList.weight = weight
+        }
+    }
+    
     func setTestWorkouts() -> WorkoutList {
         let workoutList = WorkoutList()
         workoutList.listName = "Workout"

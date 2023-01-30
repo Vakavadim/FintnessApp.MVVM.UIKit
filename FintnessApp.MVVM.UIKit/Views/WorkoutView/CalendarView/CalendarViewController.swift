@@ -27,10 +27,14 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func expendButton(_ sender: Any) {
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: { [unowned self] in
-            viewModel.calendarChangeSize()
-            delegate?.changeCalendarSize(state: viewModel.calendarExpand)
-        }, completion: nil)
+//        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8,
+//                       initialSpringVelocity: 1,
+//                       options: .curveEaseOut,
+//                       animations: { [unowned self] in
+//            delegate?.changeCalendarSize(state: viewModel.calendarExpand)
+//            viewModel.calendarChangeSize(state: !viewModel.calendarExpand)
+//            self.view.layoutIfNeeded()
+//        }, completion: nil)
 
         print("Button did tap")
     }
@@ -47,12 +51,7 @@ class CalendarViewController: UIViewController {
             action: #selector(handlePan)
             )
         )
-        self.view.addGestureRecognizer(
-            UIPanGestureRecognizer(
-                target: self,
-                action: #selector(handleDismissalPan)
-            )
-        )
+        
         UDDateManager.shared.unsetSelectedDate()
         viewModel.viewModelDidChange = { [unowned self] viewModel in
             calendarCollectionView.reloadData()
@@ -63,9 +62,11 @@ class CalendarViewController: UIViewController {
     
     private func updateCollectionViewSize() {
         DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
             let height = self.calendarCollectionView.collectionViewLayout.collectionViewContentSize.height
             self.calendarViewHeight.constant = height
             self.view.setNeedsLayout()
+            }, completion: nil)
         }
     }
     
@@ -78,53 +79,43 @@ class CalendarViewController: UIViewController {
         case .ended:
             handlePanEnded(gesture: gesture)
         default:
-            print("unknown default")
-        }
-    }
-    
-    @objc private func handleDismissalPan(gesture: UIPanGestureRecognizer) {
-        switch gesture.state {
-        case .changed:
-            handleDismissalPanChange(gesture: gesture)
-        case .ended:
-            handleDismissalPanEnded(gesture: gesture)
-        default:
-            print("unknown default")
+            print("unknown handle pan")
         }
     }
     
     private func handlePanChange(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self.view.superview)
         self.view.transform = CGAffineTransform(translationX: 0, y: translation.y)
+        
+        self.delegate?.installVisualEffectView()
+        let newAlpha = translation.y / 100
+        self.delegate?.changeVisualEffectViewAlpha(alpha: newAlpha)
     }
     
     private func handlePanEnded(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self.view.superview)
         let velocity = gesture.velocity(in: self.view.superview)
-        self.view.transform = .identity
         
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: { [self] in
-        if translation.y > 100 || velocity.y > 500 {
-                viewModel.calendarChangeSize()
-                delegate?.changeCalendarSize(state: viewModel.calendarExpand)
-            }
-        }, completion: nil)
-    }
-    
-    private func handleDismissalPanChange(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: self.view.superview)
-        self.view.transform = CGAffineTransform(translationX: 0, y: translation.y)
-    }
-    
-    private func handleDismissalPanEnded(gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: self.view.superview)
-        let velocity = gesture.velocity(in: self.view.superview)
-        self.view.transform = .identity
         
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: { [self] in
-            if translation.y > -100 || velocity.y > -500 {
-                viewModel.calendarChangeSize()
-                delegate?.changeCalendarSize(state: viewModel.calendarExpand)
+        
+        print("handlePanEnded")
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {
+            self.view.transform = .identity
+
+            if translation.y > 100 || velocity.y > 500 {
+                self.view.transform = .identity
+                print("handlePanEnded")
+                // change alpha
+                self.delegate?.changeCalendarSize(state: false)
+                self.viewModel.calendarChangeSize(state: true)
+            } else {
+                // deinstall effect
+                self.delegate?.uninstallVisualEffectView()
+                self.delegate?.changeCalendarSize(state: true)
+                self.viewModel.calendarChangeSize(state: false)
             }
         }, completion: nil)
     }
@@ -169,6 +160,5 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         0
     }
-    
 }
 

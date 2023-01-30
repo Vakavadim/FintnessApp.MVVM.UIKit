@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CalendarViewModelProrocol {
+protocol CalendarViewModelProrocol: AnyObject {
     var currentDate: Date { get }
     var selectedDate: Date { get set }
     var calendarExpand: Bool { get }
@@ -17,7 +17,7 @@ protocol CalendarViewModelProrocol {
     func cellDidSelected(at indexPath: IndexPath)
     func nextMonth(selectedDate: Date) -> Date
     func previusMonth(selectedDate: Date) -> Date
-    func calendarChangeSize()
+    func calendarChangeSize(state: Bool)
     var viewModelDidChange: ((CalendarViewModelProrocol) -> Void)? { get set }
     
 }
@@ -109,8 +109,8 @@ class CalendarViewModel: CalendarViewModelProrocol {
         CalendarManager.shared.addMonth(date: selectedDate, month: -1)
     }
     
-    func calendarChangeSize() {
-        calendarExpand.toggle()
+    func calendarChangeSize(state: Bool) {
+        calendarExpand = state
     }
     
     func cellDidSelected(at indexPath: IndexPath) {

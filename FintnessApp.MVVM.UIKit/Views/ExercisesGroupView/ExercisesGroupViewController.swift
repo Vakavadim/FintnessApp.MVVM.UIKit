@@ -54,12 +54,15 @@ class ExercisesGroupViewController: UIViewController {
     }
     
     @objc func indexChanged(_ sender: UISegmentedControl) {
-        if segmentedControl.selectedSegmentIndex == 0 {
-            addElementButton.setTitle("Создать упражнение", for: .normal)
-            addElementButton.backgroundColor = .systemBlue
-        } else if segmentedControl.selectedSegmentIndex == 1 {
-            addElementButton.setTitle("Создать программу", for: .normal)
-            addElementButton.backgroundColor = .systemIndigo
+        DispatchQueue.main.async {
+            if self.segmentedControl.selectedSegmentIndex == 0 {
+                self.addElementButton.setTitle("Создать упражнение", for: .normal)
+                self.addElementButton.backgroundColor = .systemBlue
+            } else if self.segmentedControl.selectedSegmentIndex == 1 {
+                self.addElementButton.setTitle("Создать программу", for: .normal)
+                self.addElementButton.backgroundColor = .systemIndigo
+            }
+            self.tableView.reloadData()
         }
     }
     
@@ -75,15 +78,24 @@ class ExercisesGroupViewController: UIViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension ExercisesGroupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.rows.count
+        if segmentedControl.selectedSegmentIndex == 0 {
+            return viewModel.rows.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellViewModel = viewModel.rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseGroupCell", for: indexPath)
-        guard let cell = cell as? ExerciseGroupCell else { return UITableViewCell() }
-        cell.viewModel = cellViewModel
-        return cell
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let cellViewModel = viewModel.rows[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseGroupCell", for: indexPath)
+            guard let cell = cell as? ExerciseGroupCell else { return UITableViewCell() }
+            cell.viewModel = cellViewModel
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -91,5 +103,9 @@ extension ExercisesGroupViewController: UITableViewDelegate, UITableViewDataSour
         let cellViewModel = viewModel.rows[indexPath.row]
         let corseDetailsViewModel = ExercisesViewModel(exercise: cellViewModel.exercises)
         performSegue(withIdentifier: "showExercises", sender: corseDetailsViewModel)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        50
     }
 }

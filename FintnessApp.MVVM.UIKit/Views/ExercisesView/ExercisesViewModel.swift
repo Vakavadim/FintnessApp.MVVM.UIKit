@@ -10,10 +10,15 @@ import Foundation
 protocol ExercisesViewModelProtocol {
     var exercise: [Exercise] { get set }
     func getCellViewModel(indexPath: IndexPath) -> ExerciseCellViewModelProtocol
+    func getExercise(by indexPath: IndexPath) -> Exercise
     init(exercise: [Exercise])
 }
 
 class ExercisesViewModel: ExercisesViewModelProtocol {
+    
+    func getExercise(by indexPath: IndexPath) -> Exercise {
+        return exercise[indexPath.row]
+    }
     
     func getCellViewModel(indexPath: IndexPath) -> ExerciseCellViewModelProtocol {
         ExerciseCellViewModel(exercise: exercise[indexPath.row])

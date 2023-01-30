@@ -9,6 +9,9 @@ import UIKit
 
 protocol WorkoutViewControllerDelegate: AnyObject {
     func changeCalendarSize(state: Bool)
+    func installVisualEffectView()
+    func uninstallVisualEffectView()
+    func changeVisualEffectViewAlpha(alpha: Double)
     func reloadTableViewData()
 }
 
@@ -19,16 +22,11 @@ class WorkoutViewController: UIViewController {
     @IBOutlet var weightStepper: UIStepper!
     
     private var calendarVC: CalendarViewController!
+    private var minimizedTopAnchorConstarins: NSLayoutConstraint!
+    private var maximazedTopAnchorConstarins: NSLayoutConstraint!
+    private var bottomAnchorConstarins: NSLayoutConstraint!
     private var visualEffectView: UIVisualEffectView!
-    
-    private let calendarVCMin = CGRect(x: 0,
-                                       y: -200,
-                                       width: UIScreen.main.bounds.width,
-                                       height: 400)
-    private let calendarVCMax = CGRect(x: 0,
-                                       y: 0,
-                                       width: UIScreen.main.bounds.width,
-                                       height: 400)
+    private var timer: Timer?
     
     private var viewModel: WorkoutViewModelProtocol! {
         didSet {
@@ -55,9 +53,14 @@ class WorkoutViewController: UIViewController {
     @IBAction func weightStepper(_ sender: UIStepper) {
         sender.stepValue = 0.5
         weightLabel.text = String(sender.value)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.viewModel.setWeightValue(weigth: sender.value)
+        })
+        
     }
     
-    // MARK: - Setup UI Functions
+    // MARK: - Setup UI
     private func setupTableViewCell() {
         let nib = UINib(nibName: "WorkoutCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: WorkoutCell.reuseId)
@@ -72,13 +75,6 @@ class WorkoutViewController: UIViewController {
         tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
     }
     
-    private func installVisualEffect() {
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        self.view.insertSubview(visualEffectView,
-                                belowSubview: self.calendarVC.view)
-    }
-    
     private func setupCalendarView() {
         calendarVC = CalendarViewController(
             nibName: "CalendarViewController",
@@ -88,16 +84,40 @@ class WorkoutViewController: UIViewController {
         self.addChild(calendarVC)
         self.view.addSubview(calendarVC.view)
         
-        calendarVC.view.frame = calendarVCMin
+        calendarVC.view.translatesAutoresizingMaskIntoConstraints = false
+        maximazedTopAnchorConstarins = calendarVC.view.topAnchor.constraint(equalTo: view.topAnchor, constant: -view.frame.height)
+        minimizedTopAnchorConstarins = calendarVC.view.topAnchor.constraint(equalTo: view.topAnchor, constant: -view.frame.height)
+        bottomAnchorConstarins = calendarVC.view.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 200)
+        
+        calendarVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        calendarVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        
+        minimizedTopAnchorConstarins.isActive = true
+        bottomAnchorConstarins.isActive = true
+        
         calendarVC.delegate = self
     }
+    
+    private func setCalendarMinimalSize() {
+        bottomAnchorConstarins.constant = 200
+        maximazedTopAnchorConstarins.isActive = false
+        minimizedTopAnchorConstarins.isActive = true
+    }
+    
+    private func setCalendarMaximumSize() {
+        bottomAnchorConstarins.constant = 400
+        maximazedTopAnchorConstarins.isActive = true
+        minimizedTopAnchorConstarins.isActive = false
+    }
+    
+    
     
     private func setupUI() {
         tableView.layer.cornerRadius = 20
         tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         tableView.clipsToBounds = true
-        weightLabel.text = viewModel.getLastWeight().formatted()
-        weightStepper.value = viewModel.getLastWeight()
+        weightLabel.text = viewModel.getWeightValue().formatted()
+        weightStepper.value = viewModel.getWeightValue()
     }
 }
 
@@ -123,25 +143,41 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - WorkoutViewControllerDelegate
 extension WorkoutViewController: WorkoutViewControllerDelegate {
+    
+    func installVisualEffectView() {
+        if self.visualEffectView == nil {
+            self.visualEffectView = UIVisualEffectView()
+            self.visualEffectView.frame = self.view.frame
+            self.view.insertSubview(
+                visualEffectView,
+                belowSubview: self.calendarVC.view
+            )
+            self.visualEffectView.effect = UIBlurEffect(style: .dark)
+            self.visualEffectView.alpha = 0.0
+        }
+    }
+    
+    func uninstallVisualEffectView() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+            DispatchQueue.main.async {
+                self.visualEffectView.removeFromSuperview()
+                self.visualEffectView = nil
+            }
+        }, completion: nil)
+    }
+    
+    func changeVisualEffectViewAlpha(alpha: Double) {
+        self.visualEffectView.alpha = alpha
+    }
+    
     func reloadTableViewData() {
         viewModel.getWorkouts()
+        setupUI()
         tableView.reloadData()
     }
     
     func changeCalendarSize(state: Bool) {
-        
-        self.calendarVC.view.frame = state ? calendarVCMax : calendarVCMin
-        
-        if state {
-            // work with visualEffectView
-            installVisualEffect()
-            self.visualEffectView.effect = UIBlurEffect(style: .dark)
-            self.visualEffectView.alpha = 0.8
-        } else {
-            // work with visualEffectView
-            self.visualEffectView.effect = nil
-            self.visualEffectView.removeFromSuperview()
-        }
+        state ? setCalendarMinimalSize() : setCalendarMaximumSize()
     }
     
     
