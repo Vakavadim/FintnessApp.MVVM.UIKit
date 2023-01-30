@@ -23,7 +23,7 @@ class WorkoutViewModel: WorkoutViewModelProtocol {
     var viewModelDidChange: ((WorkoutViewModelProtocol) -> Void)?
 
     func numbersOfRows() -> Int {
-        guard let workouts = workoutList.first?.workouts.count else { return 10 }
+        guard let workouts = workoutList.first?.workouts.count else { return 1 }
         return workouts
     }
     

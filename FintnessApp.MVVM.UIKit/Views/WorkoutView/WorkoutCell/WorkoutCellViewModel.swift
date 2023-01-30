@@ -11,16 +11,27 @@ protocol WorkoutCellViewModelProtocol {
     var workoutName: String { get }
     var imageName: String { get }
     var exposition: String  { get }
-    var weight: Int? { get set }
-    var count: Int? { get set }
-    var range: Int? { get set }
-    var time: Int? { get set }
+    var weight: Int? { get }
+    var count: Int? { get }
+    var range: Int? { get }
+    var time: Int? { get }
+    var workoutDescription: String { get }
     init(workout: Workout)
 }
 
 class WorkoutCellViewModel: WorkoutCellViewModelProtocol {
     
     private let workout: Workout
+    
+    var workoutDescription: String {
+        if workout.type == "cardio" {
+            guard let time = workout.time, let range = workout.range else {return "добавьте данные о тренировке"}
+            return "Время: \(time) минут, Расстояние: \(range) метров"
+        } else {
+            guard let count = workout.count, let weight = workout.weight else {return "добавьте данные о тренировке"}
+            return "Количество подходов: \(count), Вес: \(weight) килограмм"
+        }
+    }
     
     var workoutName: String {
         workout.name
@@ -34,13 +45,21 @@ class WorkoutCellViewModel: WorkoutCellViewModelProtocol {
         workout.description
     }
     
-    var weight: Int?
+    var weight: Int? {
+        workout.weight
+    }
     
-    var count: Int?
+    var count: Int? {
+        workout.count
+    }
     
-    var range: Int?
+    var range: Int? {
+        workout.range
+    }
     
-    var time: Int?
+    var time: Int? {
+        workout.time
+    }
     
     required init(workout: Workout) {
         self.workout = workout

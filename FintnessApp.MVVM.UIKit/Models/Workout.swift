@@ -14,7 +14,7 @@ class Workout: Object {
     @Persisted var imageName: String
     @Persisted var desc: String
     @Persisted var count: Int?
-    @Persisted var weght: Int?
+    @Persisted var weight: Int?
     @Persisted var time: Int?
     @Persisted var range: Int?
 }

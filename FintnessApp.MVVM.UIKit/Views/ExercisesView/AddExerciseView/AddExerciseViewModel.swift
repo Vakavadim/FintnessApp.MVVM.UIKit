@@ -64,7 +64,7 @@ class AddExerciseViewModel: AddExerciseViewModelProtocol {
             workout.range = Int(range)
         } else {
             guard let weight = weight, let setsCount = setsCount else { return }
-            workout.weght = Int(weight)
+            workout.weight = Int(weight)
             workout.count = Int(setsCount)
         }
         

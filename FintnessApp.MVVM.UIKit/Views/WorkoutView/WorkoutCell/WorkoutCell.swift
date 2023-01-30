@@ -15,6 +15,7 @@ class WorkoutCell: UITableViewCell {
         didSet {
             var content = defaultContentConfiguration()
             content.text = viewModel.workoutName
+            content.secondaryText = viewModel.workoutDescription
             content.image = UIImage(systemName: viewModel.imageName)
             content.imageProperties.tintColor = UIColor(rgb: 0xFF564C)
             contentConfiguration = content
