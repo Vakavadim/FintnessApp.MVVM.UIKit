@@ -10,17 +10,33 @@ import RealmSwift
 
 protocol AddExerciseViewModelProtocol {
     func addExercise(setsCount: String?, weight: String?, time: String?, range: String?)
-    func getType() -> String
-    func getExerciseImage() -> UIImage
-    func getExerciseTitle() -> String
-    func getExerciseDescription() -> String
+    var exerciseType: String { get }
+    var exerciseImage: UIImage { get }
+    var exerciseTitle: String { get }
+    var exerciseDescription: String { get }
     init(exercise: Exercise)
 }
 
 class AddExerciseViewModel: AddExerciseViewModelProtocol {
     
-    
     private var exercise: Exercise
+    
+    var exerciseType: String {
+        exercise.type
+    }
+    
+    var exerciseImage: UIImage {
+        guard let image = UIImage(systemName: exercise.imageName) else { return UIImage() }
+        return image
+    }
+    
+    var exerciseTitle: String {
+        return exercise.title
+    }
+    
+    var exerciseDescription: String {
+        return exercise.description
+    }
     
     private func saveExercise(workoutLists: Results<WorkoutList>, workout: Workout) {
         if workoutLists.first != nil {
@@ -60,23 +76,6 @@ class AddExerciseViewModel: AddExerciseViewModelProtocol {
         saveExercise(workoutLists: workoutLists, workout: workout)
     }
 
-    func getType() -> String {
-        exercise.type
-    }
-    
-    func getExerciseImage() -> UIImage {
-        guard let image = UIImage(systemName: exercise.imageName) else { return UIImage() }
-        return image
-    }
-    
-    func getExerciseTitle() -> String {
-        return exercise.title
-    }
-    
-    func getExerciseDescription() -> String {
-        return exercise.description
-    }
-    
     required init(exercise: Exercise) {
         self.exercise = exercise
     }

@@ -27,15 +27,15 @@ class AddExerciseViewController: UIViewController {
     }
     
     private func setupUI() {
-        if viewModel.getType() == "cardio" {
+        if viewModel.exerciseType == "cardio" {
             regularDataStack.isHidden = true
         } else {
             cardioDataStack.isHidden = true
         }
         
-        exerciseTitle.text = viewModel.getExerciseTitle()
-        exerciseDescription.text = viewModel.getExerciseDescription()
-        exerciseImage.image = viewModel.getExerciseImage()
+        exerciseTitle.text = viewModel.exerciseTitle
+        exerciseDescription.text = viewModel.exerciseDescription
+        exerciseImage.image = viewModel.exerciseImage
         
     }
     
