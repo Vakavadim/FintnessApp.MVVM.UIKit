@@ -114,7 +114,8 @@ class CalendarViewModel: CalendarViewModelProrocol {
     }
     
     func cellDidSelected(at indexPath: IndexPath) {
-        selectedDate = totalSquares[indexPath.item].date!
+        guard let date = totalSquares[indexPath.item].date else { return }
+        selectedDate = date
         print(indexPath.item)
         print(totalSquares[indexPath.item].date!)
     }
